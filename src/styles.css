@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-editorial: "Playfair Display", serif;
+  --color-ink: #080806;
+  --color-charcoal: #171715;
+  --color-offwhite: #f4f0e8;
+  --color-stone: #d8d0c1;
+  --color-olive: #73735a;
+  --color-softgrey: #b9b8b2;
+  --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #080806;
+  color: #080806;
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #f4f0e8;
+  font-family: var(--font-sans);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: #080806;
+  color: #f4f0e8;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.2) 0 1px, transparent 1px);
+  background-size: 18px 18px, 23px 23px;
+  mix-blend-mode: overlay;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.editorial {
+  font-family: var(--font-editorial);
+}
+
+.mask-reveal {
+  clip-path: inset(0 0 0 0);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  background: currentColor;
+  transition: transform 0.35s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.marquee-track {
+  animation: marquee 24s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.image-clip {
+  clip-path: inset(12% 0 12% 0);
+}
+
+.product-card:hover .quick-add {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.product-card:hover .product-img-main {
+  transform: scale(1.075);
+}
+
+.product-card:hover .product-img-alt {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.soft-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.soft-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(8, 8, 6, 0.3);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
