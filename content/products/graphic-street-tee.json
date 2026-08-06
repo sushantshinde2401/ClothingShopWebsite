@@ -1,0 +1,33 @@
+﻿{
+    "badge":  "LIMITED",
+    "stock":  25,
+    "category":  "Oversized T-shirts",
+    "mood":  "Street Heat",
+    "updatedDate":  "2026-07-06T00:00:00.000Z",
+    "createdDate":  "2026-06-28T00:00:00.000Z",
+    "sizes":  [
+                  "S",
+                  "M",
+                  "L",
+                  "XL"
+              ],
+    "displayOrder":  9,
+    "name":  "Men Graphic Street Tee",
+    "featured":  true,
+    "price":  899,
+    "description":  "Graphic men\u0027s tee with oversized confidence and a limited drop feel.",
+    "colors":  [
+                   "Black",
+                   "White"
+               ],
+    "slug":  "graphic-street-tee",
+    "images":  [
+                   "https://images.unsplash.com/photo-1649114383220-c4f0f0dbafbe?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1771310961655-b1f044b227ab?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82"
+               ],
+    "tags":  [
+                 "graphic",
+                 "street",
+                 "limited"
+             ]
+}

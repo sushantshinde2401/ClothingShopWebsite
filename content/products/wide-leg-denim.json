@@ -1,0 +1,31 @@
+﻿{
+    "stock":  25,
+    "category":  "Baggy Jeans",
+    "mood":  "Street Heat",
+    "updatedDate":  "2026-07-06T00:00:00.000Z",
+    "createdDate":  "2026-06-27T00:00:00.000Z",
+    "sizes":  [
+                  "28",
+                  "30",
+                  "32",
+                  "34"
+              ],
+    "displayOrder":  10,
+    "name":  "Men Wide Leg Denim",
+    "featured":  false,
+    "price":  1799,
+    "description":  "Wide leg denim with clean volume, soft wash, and statement proportions.",
+    "colors":  [
+                   "Blue",
+                   "Grey"
+               ],
+    "slug":  "wide-leg-denim",
+    "images":  [
+                   "https://images.unsplash.com/photo-1771744390734-ddc6a02b6d83?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1549237511-bbe6a0979d6a?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82"
+               ],
+    "tags":  [
+                 "wide leg",
+                 "denim"
+             ]
+}

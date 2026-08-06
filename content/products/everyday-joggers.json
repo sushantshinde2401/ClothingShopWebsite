@@ -1,0 +1,31 @@
+﻿{
+    "stock":  25,
+    "category":  "Joggers",
+    "mood":  "Late Night Fits",
+    "updatedDate":  "2026-07-06T00:00:00.000Z",
+    "createdDate":  "2026-06-25T00:00:00.000Z",
+    "sizes":  [
+                  "S",
+                  "M",
+                  "L",
+                  "XL"
+              ],
+    "displayOrder":  12,
+    "name":  "Men Everyday Joggers",
+    "featured":  false,
+    "price":  1099,
+    "description":  "Soft men\u0027s joggers with clean cuffs and a no-fuss everyday fit.",
+    "colors":  [
+                   "Charcoal",
+                   "Olive"
+               ],
+    "slug":  "everyday-joggers",
+    "images":  [
+                   "https://images.unsplash.com/photo-1763609973499-f2791a7e6a61?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1770366927363-129518efaaac?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82"
+               ],
+    "tags":  [
+                 "joggers",
+                 "everyday"
+             ]
+}

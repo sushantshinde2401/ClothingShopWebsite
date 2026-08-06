@@ -1,0 +1,125 @@
+backend:
+  name: github
+  repo: sushantshinde2401/ClothingShopWebsite
+  branch: main
+  base_url: /api
+  auth_endpoint: auth
+
+local_backend: false
+publish_mode: simple
+media_folder: public/images/products
+public_folder: /images/products
+
+collections:
+  - name: categories
+    label: Categories
+    label_singular: Category
+    folder: content/categories
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    editor:
+      preview: false
+    fields:
+      - { label: Display Order, name: displayOrder, widget: number, value_type: int, min: 1, required: false }
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Featured, name: featured, widget: boolean, default: true }
+
+  - name: collections
+    label: Featured Collections
+    label_singular: Featured Collection
+    folder: content/collections
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    editor:
+      preview: false
+    fields:
+      - { label: Display Order, name: displayOrder, widget: number, value_type: int, min: 1, required: false }
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Subtitle, name: subtitle, widget: string }
+      - { label: Image, name: image, widget: image }
+      - { label: Category Link, name: category, widget: relation, collection: categories, search_fields: [title], value_field: title, display_fields: [title], required: false }
+      - { label: Featured, name: featured, widget: boolean, default: true }
+
+  - name: homepage
+    label: Homepage
+    files:
+      - label: Homepage Banner
+        name: homepage
+        file: content/settings/homepage.json
+        editor:
+          preview: false
+        fields:
+          - label: Hero Banner
+            name: hero
+            widget: object
+            fields:
+              - { label: Image, name: image, widget: image }
+              - { label: Image Alt Text, name: alt, widget: string, required: false }
+              - label: Headline Lines
+                name: lines
+                widget: list
+                min: 1
+                field: { label: Line, name: line, widget: string }
+              - { label: Subtitle, name: subtitle, widget: text }
+              - { label: Primary Button Label, name: primaryButtonLabel, widget: string }
+              - { label: Primary Button URL, name: primaryButtonUrl, widget: string }
+              - { label: Secondary Button Label, name: secondaryButtonLabel, widget: string }
+              - { label: Secondary Button URL, name: secondaryButtonUrl, widget: string }
+          - { label: Featured Collections Eyebrow, name: featuredCollectionsEyebrow, widget: string }
+          - { label: Featured Collections Title, name: featuredCollectionsTitle, widget: string }
+
+  - name: products
+    label: Products
+    label_singular: Product
+    folder: content/products
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    summary: "{{name}} - {{category}}"
+    editor:
+      preview: false
+    fields:
+      - { label: Display Order, name: displayOrder, widget: number, value_type: int, min: 1, required: false, hint: Lower numbers appear first on the site. }
+      - { label: Name, name: name, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: Used in product URLs. Use lowercase letters, numbers, and hyphens only. }
+      - { label: Description, name: description, widget: text }
+      - { label: Price, name: price, widget: number, value_type: int, min: 0 }
+      - { label: Old Price, name: oldPrice, widget: number, value_type: int, min: 0, required: false }
+      - { label: Category, name: category, widget: relation, collection: categories, search_fields: [title], value_field: title, display_fields: [title] }
+      - label: Sizes
+        name: sizes
+        widget: list
+        field: { label: Size, name: size, widget: string }
+      - { label: Stock, name: stock, widget: number, value_type: int, min: 0, default: 0 }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - label: Images
+        name: images
+        widget: list
+        min: 1
+        field: { label: Image, name: image, widget: image }
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        field: { label: Tag, name: tag, widget: string }
+      - { label: Created Date, name: createdDate, widget: datetime }
+      - { label: Updated Date, name: updatedDate, widget: datetime }
+      - { label: Badge, name: badge, widget: select, options: [TRENDING, NEW, LIMITED, ESSENTIAL], required: false, hint: Preserves the existing product badge UI. }
+      - label: Colors
+        name: colors
+        widget: list
+        required: false
+        field: { label: Color, name: color, widget: string }
+      - { label: Mood, name: mood, widget: select, options: [Street Heat, Minimal Mood, Everyday Drip, Late Night Fits], required: false }

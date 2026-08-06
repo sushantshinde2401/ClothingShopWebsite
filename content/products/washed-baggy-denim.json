@@ -1,0 +1,34 @@
+﻿{
+    "badge":  "LIMITED",
+    "stock":  25,
+    "category":  "Baggy Jeans",
+    "mood":  "Street Heat",
+    "updatedDate":  "2026-07-06T00:00:00.000Z",
+    "createdDate":  "2026-07-04T00:00:00.000Z",
+    "sizes":  [
+                  "28",
+                  "30",
+                  "32",
+                  "34",
+                  "36"
+              ],
+    "displayOrder":  3,
+    "name":  "Men Washed Baggy Denim",
+    "featured":  true,
+    "price":  1699,
+    "description":  "A loose men\u0027s denim silhouette with a washed finish and a structured streetwear drape.",
+    "colors":  [
+                   "Washed Blue",
+                   "Grey"
+               ],
+    "slug":  "washed-baggy-denim",
+    "images":  [
+                   "https://images.unsplash.com/photo-1771744390734-ddc6a02b6d83?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1649114383220-c4f0f0dbafbe?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82"
+               ],
+    "tags":  [
+                 "denim",
+                 "baggy",
+                 "limited"
+             ]
+}

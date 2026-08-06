@@ -1,0 +1,23 @@
+{
+  "redirects": [
+    {
+      "source": "/admin",
+      "destination": "/admin/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/api/auth",
+      "destination": "/api/auth"
+    },
+    {
+      "source": "/api/callback",
+      "destination": "/api/callback"
+    }
+  ]
+}

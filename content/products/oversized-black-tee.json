@@ -1,0 +1,37 @@
+﻿{
+    "createdDate":  "2026-07-06T00:00:00.000Z",
+    "mood":  "Minimal Mood",
+    "category":  "Oversized T-shirts",
+    "oldPrice":  999,
+    "badge":  "TRENDING",
+    "sizes":  [
+                  "S",
+                  "M",
+                  "L",
+                  "XL"
+              ],
+    "stock":  25,
+    "featured":  true,
+    "displayOrder":  1,
+    "description":  "Heavyweight cotton, dropped shoulders, and a clean oversized fall for men\u0027s everyday streetwear.",
+    "slug":  "oversized-black-tee",
+    "colors":  [
+                   "Black",
+                   "Charcoal"
+               ],
+    "updatedDate":  "2026-07-06T00:00:00.000Z",
+    "price":  799,
+    "images":  [
+                   "https://images.unsplash.com/photo-1649114383220-c4f0f0dbafbe?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1503341703022-e7836bfb04e6?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1503341873906-91d1932a9758?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82"
+               ],
+    "tags":  [
+                 "oversized",
+                 "black",
+                 "tee",
+                 "trending"
+             ],
+    "name":  "Men Oversized Black Tee"
+}

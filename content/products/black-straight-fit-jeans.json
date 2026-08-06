@@ -1,0 +1,32 @@
+﻿{
+    "stock":  25,
+    "category":  "Baggy Jeans",
+    "mood":  "Minimal Mood",
+    "updatedDate":  "2026-07-06T00:00:00.000Z",
+    "createdDate":  "2026-06-30T00:00:00.000Z",
+    "sizes":  [
+                  "28",
+                  "30",
+                  "32",
+                  "34",
+                  "36"
+              ],
+    "displayOrder":  7,
+    "name":  "Men Black Straight Fit Jeans",
+    "featured":  false,
+    "price":  1599,
+    "description":  "Straight fit denim in deep black with all-day movement.",
+    "colors":  [
+                   "Black"
+               ],
+    "slug":  "black-straight-fit-jeans",
+    "images":  [
+                   "https://images.unsplash.com/photo-1549237511-bbe6a0979d6a?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1763609973499-f2791a7e6a61?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82"
+               ],
+    "tags":  [
+                 "jeans",
+                 "black",
+                 "denim"
+             ]
+}

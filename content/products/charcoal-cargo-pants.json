@@ -1,0 +1,33 @@
+﻿{
+    "badge":  "TRENDING",
+    "stock":  25,
+    "category":  "Cargo Pants",
+    "mood":  "Late Night Fits",
+    "updatedDate":  "2026-07-06T00:00:00.000Z",
+    "createdDate":  "2026-07-03T00:00:00.000Z",
+    "sizes":  [
+                  "28",
+                  "30",
+                  "32",
+                  "34"
+              ],
+    "displayOrder":  4,
+    "name":  "Charcoal Cargo Pants",
+    "featured":  true,
+    "price":  1499,
+    "description":  "Utility-inspired cargos with roomy pockets, soft taper, and durable cotton twill.",
+    "colors":  [
+                   "Charcoal",
+                   "Black"
+               ],
+    "slug":  "charcoal-cargo-pants",
+    "images":  [
+                   "https://images.unsplash.com/photo-1763609973499-f2791a7e6a61?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82",
+                   "https://images.unsplash.com/photo-1649114383220-c4f0f0dbafbe?auto=format\u0026fit=crop\u0026w=1200\u0026h=1600\u0026q=82"
+               ],
+    "tags":  [
+                 "cargo",
+                 "charcoal",
+                 "trending"
+             ]
+}
