@@ -2,8 +2,8 @@ backend:
   name: github
   repo: sushantshinde2401/ClothingShopWebsite
   branch: main
-  base_url: /api
-  auth_endpoint: auth
+  base_url: https://madora-sepia.vercel.app
+  auth_endpoint: api/auth
 
 local_backend: false
 publish_mode: simple
