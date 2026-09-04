@@ -1,0 +1,23 @@
+{
+  "oldPrice": 1499,
+  "badge": "NEW",
+  "price": 999,
+  "updatedDate": "2026-09-04T15:36:00.000+05:30",
+  "name": "Drift Oversized Tee",
+  "slug": "drift-oversized-tee",
+  "displayOrder": 11,
+  "featured": true,
+  "sizes": [
+    "S",
+    "M",
+    "L"
+  ],
+  "createdDate": "2026-09-04T15:36:00.000+05:30",
+  "stock": 20,
+  "mood": "Everyday Drip",
+  "images": [
+    "/images/products/mad’ora-1-.png"
+  ],
+  "description": "A relaxed oversized T-shirt designed for a bold streetwear look",
+  "category": "Oversized T-shirts"
+}

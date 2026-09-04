@@ -1,0 +1,17 @@
+{
+  "oldPrice": 1499,
+  "badge": "NEW",
+  "price": 999,
+  "updatedDate": "2026-09-04T15:40:00.000+05:30",
+  "name": "Ocean Mist Oversized Tee",
+  "slug": "ocean-mist-oversized-tee",
+  "displayOrder": 13,
+  "featured": true,
+  "createdDate": "2026-09-04T15:40:00.000+05:30",
+  "stock": 15,
+  "images": [
+    "/images/products/mad’ora-2...png"
+  ],
+  "description": "A fresh sky blue oversized T-shirt with a relaxed fit, perfect for a clean and effortless everyday streetwear look.",
+  "category": "Oversized T-shirts"
+}
