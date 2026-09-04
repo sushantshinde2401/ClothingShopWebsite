@@ -1,0 +1,22 @@
+{
+  "badge": "TRENDING",
+  "price": 1000,
+  "updatedDate": "2026-09-04T14:21:00.000+05:30",
+  "name": "Crop Shirt for Men",
+  "slug": "mens-crop-shirt",
+  "displayOrder": 10,
+  "featured": false,
+  "sizes": [
+    "S",
+    "M",
+    "L"
+  ],
+  "createdDate": "2026-09-04T14:21:00.000+05:30",
+  "stock": 0,
+  "mood": "Street Heat",
+  "images": [
+    "/images/products/crop-shirt.jpg"
+  ],
+  "description": "Stylish cropped shirt for men with a modern casual fit.",
+  "category": "Shirts"
+}
