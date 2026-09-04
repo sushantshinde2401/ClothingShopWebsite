@@ -1,0 +1,17 @@
+{
+  "oldPrice": 1499,
+  "badge": "NEW",
+  "price": 997,
+  "updatedDate": "2026-09-04T15:38:00.000+05:30",
+  "name": "Midnight Oversized Tee",
+  "slug": "midnight-oversized-tee",
+  "displayOrder": 12,
+  "featured": true,
+  "createdDate": "2026-09-04T15:38:00.000+05:30",
+  "stock": 30,
+  "images": [
+    "/images/products/mad’ora-2..png"
+  ],
+  "description": "A clean oversized silhouette with a modern streetwear feel,",
+  "category": "Oversized T-shirts"
+}
