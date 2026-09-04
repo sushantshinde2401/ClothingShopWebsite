@@ -5,16 +5,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext.jsx';
 import { useWishlist } from '../context/WishlistContext.jsx';
 import Marquee from './Marquee.jsx';
-
-const links = [
-  ['New Arrivals', '/new-arrivals'],
-  ['Shop', '/shop'],
-  ['Oversized Tees', '/shop?category=Oversized%20T-shirts'],
-  ['Baggy Jeans', '/shop?category=Baggy%20Jeans'],
-  ['Cargo Pants', '/shop?category=Cargo%20Pants'],
-  ['Hoodies', '/shop?category=Hoodies'],
-  ['Lookbook', '/lookbook'],
-];
+import { navigation } from '../data/products.js';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,6 +25,7 @@ export default function Navbar() {
   useEffect(() => setOpen(false), [location.pathname]);
 
   const textTone = isHome && !scrolled ? 'text-white' : 'text-ink';
+  const links = navigation.links || [];
 
   return (
     <header className="fixed left-0 right-0 top-0 z-[60]">
@@ -45,12 +37,12 @@ export default function Navbar() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
           <Link to="/" className="text-xl font-black uppercase tracking-[0.12em]">
-            Mad’ora
+            Mad'ora
           </Link>
           <div className="hidden items-center gap-7 text-xs font-extrabold uppercase tracking-[0.16em] lg:flex">
-            {links.map(([label, to]) => (
-              <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to={to} key={to}>
-                {label}
+            {links.map((link) => (
+              <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to={link.url} key={link.url}>
+                {link.label}
               </NavLink>
             ))}
           </div>
@@ -82,21 +74,21 @@ export default function Navbar() {
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="mb-12 flex items-center justify-between">
-              <span className="text-xl font-black uppercase tracking-[0.12em]">Mad’ora</span>
+              <span className="text-xl font-black uppercase tracking-[0.12em]">Mad'ora</span>
               <button className="grid h-10 w-10 place-items-center rounded-full border border-white/20" onClick={() => setOpen(false)} aria-label="Close menu">
                 <X size={19} />
               </button>
             </div>
             <div className="flex flex-col gap-5">
-              {links.map(([label, to], index) => (
+              {links.map((link, index) => (
                 <motion.div
-                  key={to}
+                  key={link.url}
                   initial={{ opacity: 0, x: 28 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.06 }}
                 >
-                  <NavLink className="text-3xl font-black uppercase tracking-tight" to={to}>
-                    {label}
+                  <NavLink className="text-3xl font-black uppercase tracking-tight" to={link.url}>
+                    {link.label}
                   </NavLink>
                 </motion.div>
               ))}

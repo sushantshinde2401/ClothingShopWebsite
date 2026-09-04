@@ -1,0 +1,31 @@
+{
+  "heroImage": "https://images.unsplash.com/photo-1771310961655-b1f044b227ab?auto=format&fit=crop&w=1200&h=1600&q=82",
+  "heroImageAlt": "Mad'ora men's streetwear about",
+  "introHeadline": "Built For India's New Generation",
+  "introSubtext": "About Mad'ora",
+  "brandStoryImage": "https://images.unsplash.com/photo-1771310961655-b1f044b227ab?auto=format&fit=crop&w=1200&h=1600&q=82",
+  "brandStoryImageAlt": "Mad'ora men's streetwear brand story",
+  "brandStoryText": "Mad'ora is built for the new generation of men \u2014 streetwear that blends comfort, trend, affordability, and individuality.",
+  "values": [
+    {
+      "title": "Brand Intro",
+      "copy": "Mad'ora is a modern men's streetwear clothing brand focused on delivering oversized fits, baggy denim, stylish basics, and everyday essentials for the new generation."
+    },
+    {
+      "title": "Mission",
+      "copy": "Deliver high-quality men's streetwear and stylish everyday fashion at accessible prices."
+    },
+    {
+      "title": "Vision",
+      "copy": "To build a trusted and recognizable men's fashion brand in India."
+    },
+    {
+      "title": "USP",
+      "copy": "Premium men's streetwear plus stylish everyday fashion for Gen Z."
+    },
+    {
+      "title": "Future Goals",
+      "copy": "Build stronger drops, smarter fits, and a recognizable men's streetwear identity."
+    }
+  ]
+}

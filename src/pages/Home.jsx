@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+﻿import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDown, Play } from 'lucide-react';
@@ -7,28 +7,22 @@ import AnimatedSection from '../components/AnimatedSection.jsx';
 import CollectionCard from '../components/CollectionCard.jsx';
 import MagneticButton from '../components/MagneticButton.jsx';
 import ProductCard from '../components/ProductCard.jsx';
-import { collections, editorialImages, moods, products } from '../data/products.js';
+import { collections, editorialImages, homepage, moods, products } from '../data/products.js';
 import { clipReveal, fadeUp, staggerParent } from '../utils/animations.js';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const heroImage = editorialImages.hero;
-const lookImages = [
-  editorialImages.studioSet,
-  editorialImages.denimJacket,
-  editorialImages.cargo,
-];
 
 function Hero() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const scale = useTransform(scrollYProgress, [0, 1], [1.08, 0.96]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.35]);
-  const lines = ['MEN’S', 'STREETWEAR', 'FOR THE NEW', 'GENERATION'];
+  const hero = homepage.hero;
+  const lines = hero.lines?.length ? hero.lines : ['MEN\'S', 'STREETWEAR', 'FOR THE NEW', 'GENERATION'];
 
   return (
     <section ref={ref} className="grain relative min-h-screen overflow-hidden bg-ink text-white">
-      <motion.img className="absolute inset-0 h-full w-full object-cover" style={{ scale }} src={heroImage} alt="Mad'ora men's streetwear editorial" />
+      <motion.img className="absolute inset-0 h-full w-full object-cover" style={{ scale }} src={hero.image} alt={hero.alt || "Mad'ora men's streetwear editorial"} />
       <div className="absolute inset-0 bg-black/55" />
       <motion.div className="absolute inset-x-0 bottom-0 top-0 mx-auto flex max-w-7xl items-center px-4 pt-32 sm:px-6" style={{ opacity }}>
         <div className="relative z-10 max-w-5xl">
@@ -45,11 +39,11 @@ function Hero() {
             ))}
           </motion.div>
           <motion.p className="mt-6 max-w-xl text-lg font-medium text-white/78 sm:text-2xl" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.05 }}>
-            Oversized fits, baggy denim, and everyday essentials made for bold self-expression.
+            {hero.subtitle}
           </motion.p>
           <motion.div className="mt-8 flex flex-wrap gap-3" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}>
-            <MagneticButton to="/new-arrivals" variant="light">Shop New Drop</MagneticButton>
-            <MagneticButton to="/lookbook" variant="ghost" className="text-white">Explore Fits</MagneticButton>
+            <MagneticButton to={hero.primaryButtonUrl || '/new-arrivals'} variant="light">{hero.primaryButtonLabel || 'Shop New Drop'}</MagneticButton>
+            <MagneticButton to={hero.secondaryButtonUrl || '/lookbook'} variant="ghost" className="text-white">{hero.secondaryButtonLabel || 'Explore Fits'}</MagneticButton>
           </motion.div>
         </div>
       </motion.div>
@@ -61,10 +55,16 @@ function Hero() {
 }
 
 function OutfitBuilder() {
-  const [top, setTop] = useState('Oversized Tee');
-  const [bottom, setBottom] = useState('Baggy Jeans');
-  const tops = ['Oversized Tee', 'Graphic Tee', 'Hoodie'];
-  const bottoms = ['Baggy Jeans', 'Cargo Pants', 'Joggers'];
+  const tops = products.filter((p) => p.category && (p.category.toLowerCase().includes('tee') || p.category.toLowerCase().includes('shirt') || p.category.toLowerCase().includes('hoodie')));
+  const bottoms = products.filter((p) => p.category && (p.category.toLowerCase().includes('jean') || p.category.toLowerCase().includes('pant') || p.category.toLowerCase().includes('cargo') || p.category.toLowerCase().includes('jogger')));
+
+  const topOptions = tops.slice(0, 3).map((p) => p.name.split(' ')[0]);
+  const bottomOptions = bottoms.slice(0, 3).map((p) => p.name.split(' ')[0]);
+
+  if (topOptions.length === 0 || bottomOptions.length === 0) return null;
+
+  const [top, setTop] = useState(topOptions[0]);
+  const [bottom, setBottom] = useState(bottomOptions[0]);
 
   return (
     <AnimatedSection className="bg-ink px-4 py-20 text-offwhite sm:px-6">
@@ -72,17 +72,17 @@ function OutfitBuilder() {
         <div>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-white/45">Interactive</p>
           <h2 className="text-5xl font-black uppercase leading-none tracking-tight sm:text-7xl">Build Your Fit</h2>
-          <p className="mt-5 max-w-sm text-white/60">Pick a top, lock a bottom, and complete the everyday men’s streetwear uniform.</p>
+          <p className="mt-5 max-w-sm text-white/60">Pick a top, lock a bottom, and complete the everyday men's streetwear uniform.</p>
         </div>
         <motion.div key={`${top}-${bottom}`} initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden bg-offwhite text-ink shadow-soft">
-          <img className="h-full w-full object-cover" src={products.find((p) => p.name.includes(top.split(' ')[0]))?.images[0] || products[0].images[0]} alt="" />
+          <img className="h-full w-full object-cover" src={products.find((p) => p.name.includes(top.split(' ')[0]))?.images[0] || products[0]?.images[0]} alt="" />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/60">Preview</p>
             <h3 className="mt-1 text-3xl font-black uppercase">{top} + {bottom}</h3>
           </div>
         </motion.div>
         <div className="space-y-7">
-          {[['Top', tops, top, setTop], ['Bottom', bottoms, bottom, setBottom]].map(([label, options, value, setValue]) => (
+          {[['Top', topOptions, top, setTop], ['Bottom', bottomOptions, bottom, setBottom]].map(([label, options, value, setValue]) => (
             <div key={label}>
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-white/45">{label}</p>
               <div className="grid gap-2">
@@ -127,6 +127,12 @@ export default function Home() {
     return () => ctx.revert();
   }, []);
 
+  const lookImages = [
+    editorialImages.find((img) => img.slug === 'studio-set')?.image || editorialImages[1]?.image,
+    editorialImages.find((img) => img.slug === 'denim-jacket')?.image || editorialImages[2]?.image,
+    editorialImages.find((img) => img.slug === 'cargo')?.image || editorialImages[3]?.image,
+  ].filter(Boolean);
+
   return (
     <div ref={heroGsap}>
       <Hero />
@@ -134,8 +140,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-black/45">Featured Collections</p>
-              <h2 className="text-5xl font-black uppercase leading-none tracking-tight sm:text-7xl">Men’s Drop Categories</h2>
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-black/45">{homepage.featuredCollectionsEyebrow}</p>
+              <h2 className="text-5xl font-black uppercase leading-none tracking-tight sm:text-7xl">{homepage.featuredCollectionsTitle}</h2>
             </div>
             <MagneticButton to="/shop">Shop all</MagneticButton>
           </div>
@@ -195,9 +201,9 @@ export default function Home() {
       <section className="brand-bg px-4 py-24 sm:px-6">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
           <motion.p className="text-4xl font-black uppercase leading-tight tracking-tight sm:text-6xl" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            Mad’ora is built for the new generation of men — streetwear that blends comfort, trend, affordability, and individuality.
+            Mad'ora is built for the new generation of men \u2014 streetwear that blends comfort, trend, affordability, and individuality.
           </motion.p>
-          <motion.img className="min-h-[520px] w-full object-cover" variants={clipReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} src={editorialImages.blackDenim} alt="Mad'ora men's brand story" loading="lazy" />
+          <motion.img className="min-h-[520px] w-full object-cover" variants={clipReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} src={editorialImages.find((img) => img.slug === 'black-denim')?.image || editorialImages[5]?.image} alt="Mad'ora men's brand story" loading="lazy" />
         </div>
       </section>
       <section className="bg-charcoal px-4 py-24 text-offwhite sm:px-6">
@@ -209,7 +215,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {products.slice(0, 8).map((product, index) => (
               <motion.div className="group relative aspect-square overflow-hidden bg-ink" variants={clipReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} key={product.id}>
-                <img className="h-full w-full object-cover transition duration-500 group-hover:scale-110" src={product.images[index % 2]} alt="" loading="lazy" />
+                <img className="h-full w-full object-cover transition duration-500 group-hover:scale-110" src={product.images[index % 2] || product.images[0]} alt="" loading="lazy" />
                 <div className="absolute inset-0 grid place-items-center bg-black/50 text-xs font-black uppercase tracking-[0.2em] opacity-0 transition group-hover:opacity-100">View fit</div>
               </motion.div>
             ))}
@@ -220,7 +226,7 @@ export default function Home() {
         <div className="mx-auto max-w-4xl border border-black/10 bg-white/45 p-7 shadow-soft backdrop-blur md:p-12">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-black/45">Join The Drop</p>
           <h2 className="text-5xl font-black uppercase leading-none tracking-tight sm:text-7xl">Early Access Only</h2>
-          <p className="mt-4 max-w-xl text-black/60">Get early access to new arrivals, limited drops, and exclusive Mad’ora offers.</p>
+          <p className="mt-4 max-w-xl text-black/60">Get early access to new arrivals, limited drops, and exclusive Mad'ora offers.</p>
           <form className="mt-8 flex flex-col gap-3 sm:flex-row">
             <input className="min-h-12 flex-1 border border-black/10 bg-offwhite px-4 outline-none transition focus:border-ink focus:shadow-soft" placeholder="Email address" type="email" />
             <MagneticButton type="submit">Join the drop</MagneticButton>

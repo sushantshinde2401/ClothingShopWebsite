@@ -1,0 +1,32 @@
+{
+  "links": [
+    {
+      "label": "New Arrivals",
+      "url": "/new-arrivals"
+    },
+    {
+      "label": "Shop",
+      "url": "/shop"
+    },
+    {
+      "label": "Oversized Tees",
+      "url": "/shop?category=Oversized%20T-shirts"
+    },
+    {
+      "label": "Baggy Jeans",
+      "url": "/shop?category=Baggy%20Jeans"
+    },
+    {
+      "label": "Cargo Pants",
+      "url": "/shop?category=Cargo%20Pants"
+    },
+    {
+      "label": "Hoodies",
+      "url": "/shop?category=Hoodies"
+    },
+    {
+      "label": "Lookbook",
+      "url": "/lookbook"
+    }
+  ]
+}

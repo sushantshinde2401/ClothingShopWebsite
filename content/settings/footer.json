@@ -1,0 +1,25 @@
+{
+  "brandTagline": "New Gen Streetwear",
+  "brandDescription": "Premium men's streetwear, stylish basics, and affordable everyday fits for India's new generation.",
+  "copyright": "\u00a9 2026 Mad'ora. All rights reserved.",
+  "instagram": "@MADORAOFFICIAL",
+  "email": "hello@madora.in",
+  "columns": [
+    {
+      "title": "Shop",
+      "items": ["Oversized Tees", "Baggy Denim", "Cargo Pants", "Hoodies"]
+    },
+    {
+      "title": "Brand",
+      "items": ["About", "Lookbook", "New Drops", "Careers"]
+    },
+    {
+      "title": "Help",
+      "items": ["Contact", "Shipping", "Returns", "Size Guide"]
+    },
+    {
+      "title": "Social",
+      "items": ["Instagram", "YouTube", "Threads", "Pinterest"]
+    }
+  ]
+}

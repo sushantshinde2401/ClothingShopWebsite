@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { clipReveal } from '../utils/animations.js';
 
 export default function CollectionCard({ collection, index }) {
+  const link = collection.category ? `/shop?category=${encodeURIComponent(collection.category)}` : '/shop';
+
   return (
     <motion.div
       variants={clipReveal}
@@ -20,7 +22,7 @@ export default function CollectionCard({ collection, index }) {
         <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-white/60">Collection 0{index + 1}</p>
         <h3 className="text-4xl font-black uppercase tracking-tight">{collection.title}</h3>
         <p className="mt-2 max-w-xs text-sm text-white/70">{collection.subtitle}</p>
-        <Link to="/shop" className="mt-5 inline-flex translate-y-3 items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <Link to={link} className="mt-5 inline-flex translate-y-3 items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           Explore <ArrowUpRight size={16} />
         </Link>
       </div>

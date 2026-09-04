@@ -1,0 +1,26 @@
+{
+  "headline": "Talk To The Drop Team",
+  "subtext": "Contact",
+  "email": "hello@madora.in",
+  "phone": "+91 90000 00000",
+  "address": "Store information coming soon",
+  "instagram": "@MADORAOFFICIAL",
+  "faqs": [
+    {
+      "question": "What is the shipping time?",
+      "answer": "Our team will update this section as operations go live."
+    },
+    {
+      "question": "Do you offer exchanges?",
+      "answer": "Our team will update this section as operations go live."
+    },
+    {
+      "question": "How do I choose my size?",
+      "answer": "Our team will update this section as operations go live."
+    },
+    {
+      "question": "When is the next drop?",
+      "answer": "Our team will update this section as operations go live."
+    }
+  ]
+}
