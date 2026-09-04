@@ -18,6 +18,10 @@
     {
       "source": "/api/callback",
       "destination": "/api/callback"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
