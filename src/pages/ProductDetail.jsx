@@ -1,31 +1,22 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Heart, Minus, Plus, ShieldCheck, Truck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageSquare } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import MagneticButton from '../components/MagneticButton.jsx';
 import ProductCard from '../components/ProductCard.jsx';
-import { useCart } from '../context/CartContext.jsx';
-import { useWishlist } from '../context/WishlistContext.jsx';
 import { formatPrice, products } from '../data/products.js';
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const location = useLocation();
   const product = products.find((item) => item.id === id) || products[0];
   const [[imageIndex, direction], setImageIndex] = useState([0, 0]);
-  const [size, setSize] = useState(product.sizes[0]);
-  const [color, setColor] = useState(product.colors[0]);
-  const [qty, setQty] = useState(1);
-  const { addToCart } = useCart();
-  const { isWishlisted, toggleWishlist } = useWishlist();
   const related = useMemo(() => products.filter((item) => item.category === product.category && item.id !== product.id).slice(0, 4), [product]);
   const activeImage = product.images[imageIndex] || product.images[0];
   const canSwipe = product.images.length > 1;
 
   useEffect(() => {
     setImageIndex([0, 0]);
-    setSize(product.sizes[0]);
-    setColor(product.colors[0]);
-    setQty(1);
   }, [product]);
 
   const showImage = (nextIndex) => {
@@ -38,6 +29,11 @@ export default function ProductDetail() {
     if (info.offset.x < -80) showImage(imageIndex + 1);
     if (info.offset.x > 80) showImage(imageIndex - 1);
   };
+
+  const whatsappNumber = '919653457161';
+  const productUrl = `${window.location.origin}${location.pathname}`;
+  const whatsappMessage = `Hi, I'm interested in ${product.name}. Please share availability and purchase details. ${productUrl}`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="px-4 pb-24 pt-40 sm:px-6">
@@ -87,18 +83,15 @@ export default function ProductDetail() {
           <h1 className="text-5xl font-black uppercase leading-none tracking-tight sm:text-7xl">{product.name}</h1>
           <p className="mt-5 text-2xl font-black">{formatPrice(product.price)}</p>
           <p className="mt-5 max-w-xl leading-7 text-black/60">{product.description}</p>
-          <div className="mt-8 space-y-6">
-            <div><p className="mb-3 text-xs font-black uppercase tracking-[0.22em] text-black/45">Size</p><div className="flex flex-wrap gap-2">{product.sizes.map((item) => <button className={`grid h-11 min-w-11 place-items-center rounded-full border px-3 font-bold ${size === item ? 'border-ink bg-ink text-offwhite' : 'border-black/10'}`} onClick={() => setSize(item)} key={item}>{item}</button>)}</div></div>
-            <div><p className="mb-3 text-xs font-black uppercase tracking-[0.22em] text-black/45">Color</p><div className="flex flex-wrap gap-2">{product.colors.map((item) => <button className={`rounded-full border px-4 py-2 text-sm font-bold ${color === item ? 'border-ink bg-ink text-offwhite' : 'border-black/10'}`} onClick={() => setColor(item)} key={item}>{item}</button>)}</div></div>
-            <div><p className="mb-3 text-xs font-black uppercase tracking-[0.22em] text-black/45">Quantity</p><div className="inline-flex items-center rounded-full border border-black/10"><button className="grid h-11 w-11 place-items-center" onClick={() => setQty(Math.max(1, qty - 1))}><Minus size={16} /></button><motion.span key={qty} initial={{ y: 8, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="w-10 text-center font-black">{qty}</motion.span><button className="grid h-11 w-11 place-items-center" onClick={() => setQty(qty + 1)}><Plus size={16} /></button></div></div>
-          </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <MagneticButton onClick={() => Array.from({ length: qty }).forEach(() => addToCart(product, { size, color }))}>Add to cart</MagneticButton>
-            <MagneticButton variant="ghost" onClick={() => toggleWishlist(product)} icon={false}><Heart size={17} fill={isWishlisted(product.id) ? 'currentColor' : 'none'} /> Wishlist</MagneticButton>
+          <div className="mt-8">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <MagneticButton icon={false} className="w-full sm:w-auto">
+                <MessageSquare size={18} className="mr-2" /> Enquire on WhatsApp
+              </MagneticButton>
+            </a>
           </div>
           <div className="mt-8 grid gap-3 border-t border-black/10 pt-6 text-sm text-black/60">
-            <p className="flex items-center gap-2"><Truck size={17} /> Free shipping above ₹999</p>
-            <p className="flex items-center gap-2"><ShieldCheck size={17} /> Easy exchange on eligible items</p>
+            <p className="flex items-center gap-2"><MessageSquare size={17} /> Enquire via WhatsApp for availability & purchase</p>
           </div>
         </div>
       </div>

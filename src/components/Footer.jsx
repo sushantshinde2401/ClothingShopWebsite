@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-white/45">{footer.brandTagline}</p>
             <h2 className="max-w-3xl text-5xl font-black uppercase leading-[0.92] tracking-tight sm:text-7xl">
-              Mad\u2019ora moves with the city.
+              Mad'ora moves with the city.
             </h2>
           </div>
           <Link to="/shop" className="group inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.2em]">
@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <div className="mb-4 text-2xl font-black uppercase tracking-[0.12em]">Mad\u2019ora</div>
+            <div className="mb-4 text-2xl font-black uppercase tracking-[0.12em]">Mad'ora</div>
             <p className="text-sm leading-6 text-white/55">{footer.brandDescription}</p>
           </div>
           {footer.columns.map((column) => (

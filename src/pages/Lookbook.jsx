@@ -10,7 +10,7 @@ export default function Lookbook() {
       <section className="min-h-screen px-4 pt-44 sm:px-6">
         <div className="mx-auto max-w-7xl">
           <motion.p variants={fadeUp} initial="hidden" animate="visible" className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-white/45">Editorial</motion.p>
-          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" className="max-w-6xl text-7xl font-black uppercase leading-[0.82] tracking-tight sm:text-[11rem]">Men\u2019s Everyday Movement</motion.h1>
+          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" className="max-w-6xl text-7xl font-black uppercase leading-[0.82] tracking-tight sm:text-[11rem]">Mens Everyday Movement</motion.h1>
           <motion.img variants={clipReveal} initial="hidden" animate="visible" className="mt-10 h-[56vh] w-full object-cover" src={images[0]?.image || ''} alt="Mad'ora men's lookbook" />
         </div>
       </section>

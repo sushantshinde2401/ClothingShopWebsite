@@ -1,9 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Heart, Menu, Search, ShoppingBag, X } from 'lucide-react';
+import { Menu, Search, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { useCart } from '../context/CartContext.jsx';
-import { useWishlist } from '../context/WishlistContext.jsx';
 import Marquee from './Marquee.jsx';
 import { navigation } from '../data/products.js';
 
@@ -11,8 +9,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const { count } = useCart();
-  const { count: wishCount } = useWishlist();
   const isHome = location.pathname === '/';
 
   useEffect(() => {
@@ -50,14 +46,6 @@ export default function Navbar() {
             <button className="hidden h-10 w-10 place-items-center rounded-full border border-current/15 sm:grid" aria-label="Search">
               <Search size={18} />
             </button>
-            <Link className="relative grid h-10 w-10 place-items-center rounded-full border border-current/15" to="/wishlist" aria-label="Wishlist">
-              <Heart size={18} />
-              {wishCount > 0 && <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-ink px-1 text-[10px] text-offwhite">{wishCount}</span>}
-            </Link>
-            <Link className="relative grid h-10 w-10 place-items-center rounded-full border border-current/15" to="/cart" aria-label="Cart">
-              <ShoppingBag size={18} />
-              {count > 0 && <motion.span key={count} initial={{ scale: 0.5 }} animate={{ scale: 1 }} className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-ink px-1 text-[10px] text-offwhite">{count}</motion.span>}
-            </Link>
             <button className="grid h-10 w-10 place-items-center rounded-full border border-current/15 lg:hidden" onClick={() => setOpen(true)} aria-label="Open menu">
               <Menu size={19} />
             </button>

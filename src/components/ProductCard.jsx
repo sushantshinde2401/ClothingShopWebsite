@@ -1,16 +1,9 @@
 import { motion } from 'framer-motion';
-import { Heart, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext.jsx';
-import { useWishlist } from '../context/WishlistContext.jsx';
 import { formatPrice } from '../data/products.js';
-import { fadeUp, springPop } from '../utils/animations.js';
+import { fadeUp } from '../utils/animations.js';
 
 export default function ProductCard({ product, index = 0 }) {
-  const { addToCart } = useCart();
-  const { isWishlisted, toggleWishlist } = useWishlist();
-  const wished = isWishlisted(product.id);
-
   return (
     <motion.article
       className="product-card group relative"
@@ -30,22 +23,6 @@ export default function ProductCard({ product, index = 0 }) {
             {product.badge}
           </span>
         )}
-        <motion.button
-          className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-white/85 text-ink backdrop-blur"
-          whileTap={{ scale: 0.86 }}
-          animate={wished ? { scale: [1, 1.18, 1] } : {}}
-          transition={springPop}
-          onClick={() => toggleWishlist(product)}
-          aria-label="Toggle wishlist"
-        >
-          <Heart size={18} fill={wished ? 'currentColor' : 'none'} />
-        </motion.button>
-        <button
-          className="quick-add absolute inset-x-3 bottom-3 flex translate-y-5 items-center justify-center gap-2 rounded-full bg-ink px-4 py-3 text-xs font-extrabold uppercase tracking-[0.18em] text-offwhite opacity-0 transition duration-300"
-          onClick={() => addToCart(product)}
-        >
-          <ShoppingBag size={16} /> Quick add
-        </button>
       </div>
       <div className="mt-4 flex items-start justify-between gap-4">
         <div>

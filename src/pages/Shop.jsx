@@ -85,7 +85,7 @@ export default function Shop() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-black/45">Shop Mad\u2019ora</p>
+            <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-black/45">Shop Mad'ora</p>
             <h1 className="text-6xl font-black uppercase leading-none tracking-tight sm:text-8xl">The Drop</h1>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">

@@ -5,17 +5,14 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer.jsx';
 import Loader from './components/Loader.jsx';
 import Navbar from './components/Navbar.jsx';
-import Toast from './components/Toast.jsx';
 import useLenis from './hooks/useLenis.js';
 import About from './pages/About.jsx';
-import Cart from './pages/Cart.jsx';
 import Contact from './pages/Contact.jsx';
 import Home from './pages/Home.jsx';
 import Lookbook from './pages/Lookbook.jsx';
 import NewArrivals from './pages/NewArrivals.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 import Shop from './pages/Shop.jsx';
-import Wishlist from './pages/Wishlist.jsx';
 import { pageTransition } from './utils/animations.js';
 
 class ErrorBoundary extends Component {
@@ -90,14 +87,6 @@ function AnimatedRoutes() {
           element={<motion.div {...pageTransition}><ProductDetail /></motion.div>}
         />
         <Route
-          path="/cart"
-          element={<motion.div {...pageTransition}><Cart /></motion.div>}
-        />
-        <Route
-          path="/wishlist"
-          element={<motion.div {...pageTransition}><Wishlist /></motion.div>}
-        />
-        <Route
           path="/lookbook"
           element={<motion.div {...pageTransition}><Lookbook /></motion.div>}
         />
@@ -136,7 +125,6 @@ export default function App() {
         <AnimatedRoutes />
       </main>
       <Footer />
-      <Toast />
       <CursorGlow />
       <motion.button
         className="fixed bottom-5 right-5 z-50 grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-black/70 text-white shadow-soft backdrop-blur"
